@@ -1,0 +1,65 @@
+body {
+    font-family: "Quicksand", "M PLUS Rounded 1c", "CTMKF", sans-serif;
+    background: var(--color-background);
+    min-height: 100vh;
+
+    font-weight: 500;
+}
+
+input {
+    all: unset;
+}
+
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    color: var(--color-label);
+    // font-weight: 500;
+    transition: .2s !important;
+}
+
+// h1, h2, h3, h4, h5, h6 {
+//     font-weight: 600;
+// }
+
+h1 {
+    line-height: 2em;
+    text-shadow: 0 0 1.2em, 0 2px 0 var(--color-label-bebel);
+}
+
+::selection {
+    color: var(--color-background);
+    background-color: var(--color-label);
+}
+
+// #app {
+//     max-width: 500px;
+//     min-height: 100vh;
+//     margin: 0 auto;
+//     padding: 2em 1em 4em;
+// }
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: .6em;
+    max-width: 500px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 2em 1em 3.6em;
+}
+
+._ribbon {
+    position: fixed;
+    top: 0;
+    right: 0;
+    text-transform: uppercase;
+    font-weight: 800;
+    padding: .7em;
+    opacity: .6;
+    z-index: 2000;
+    pointer-events: none;
+}

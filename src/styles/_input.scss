@@ -1,0 +1,14 @@
+input {
+    background-color: var(--color-input-background);
+    padding: .7em;
+    border-radius: var(--round-value);
+
+    ::placeholder {
+        color: currentColor;
+        opacity: .5;
+    }
+
+    &:hover {
+        background-color: var(--color-panel-background);
+    }
+}

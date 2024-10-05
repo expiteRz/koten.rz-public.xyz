@@ -1,0 +1,24 @@
+footer {
+    display: flex;
+    flex-direction: row;
+    gap: .6em;
+    // height: 2em;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    margin: .6em;
+    vertical-align: bottom;
+    z-index: 2100;
+
+    &::before {
+        content: "";
+        display: inline-block;
+        position: fixed;
+        bottom: 0;
+        height: 4em;
+        width: 100vw;
+        background: linear-gradient(transparent, var(--color-footer-background) 50%);
+        backdrop-filter: blur(.3em);
+        mask-image: linear-gradient(transparent, var(--color-background) 50%);
+    }
+}

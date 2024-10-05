@@ -1,0 +1,104 @@
+._panel {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-panel-background);
+    border-radius: var(--round-value);
+    box-shadow: 0 .2em .7em rgba(0, 0, 0, .2);
+    overflow: hidden;
+    user-select: none;
+
+    .info {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        padding: .8em 1em;
+
+        &:hover {
+            background-color: var(--color-background-hover);
+        }
+
+        .detail {
+            display: flex;
+            flex-direction: column;
+            gap: .3em;
+            margin-left: auto;
+            margin-right: 0;
+            text-align: right;
+        }
+
+        .region {
+            font-size: small;
+            font-weight: 600;
+            color: var(--color-panel-background);
+            background-color: var(--color-chip-background);
+            border-radius: var(--round-value);
+            padding: .3em;
+
+            &::selection {
+                background-color: var(--color-background);
+                color: var(--color-label);
+            }
+        }
+
+        svg {
+            fill: currentColor;
+
+            &.room_indicator {
+                width: 32px;
+                // margin: .3em;
+
+                &:hover {
+                    scale: 1.15;
+                    filter: drop-shadow(0 0 .8em);
+                }
+            }
+
+            &.player_icon {
+                width: 18px;
+            }
+        }
+    }
+
+    hr {
+        margin: 0 .7em;
+        background-color: var(--color-label-bebel);
+        color: var(--color-label-bebel);
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 3em var(--color-panel-background);
+        z-index: 1000;
+    }
+
+    svg.opened {
+        transform: rotate(180deg);
+    }
+
+    .player_item {
+        display: flex;
+        flex-direction: row;
+        margin: .7em;
+        user-select: text;
+
+        h4 {
+            margin: auto auto auto 0;
+        }
+
+        #fc {
+            opacity: .8;
+            font-family: "Ubuntu Sans Mono", sans-serif;
+            margin: auto 0 auto auto;
+        }
+
+        #rating {
+            font-size: smaller;
+            font-weight: 600;
+            color: var(--color-panel-background);
+            background-color: var(--color-chip-background);
+            border-radius: var(--round-value);
+            padding: .3em;
+            margin-left: .7em;
+        }
+    }
+}

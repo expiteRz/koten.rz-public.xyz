@@ -1,0 +1,19 @@
+:root {
+    /* Colors */
+    --color-default: 120deg, 18%;
+    
+    --color-background: hsl(var(--color-default), 12%);
+    --color-label: hsl(var(--color-default), 84%);
+    --color-label-bebel: hsl(var(--color-default), 48%);
+    
+    --color-panel-background: hsl(var(--color-default), 24%);
+    --color-background-hover: hsl(var(--color-default), 32%);
+    --color-chip-background: hsl(var(--color-default), 72%);
+
+    --color-input-background: hsl(var(--color-default), 18%);
+
+    --color-footer-background: hsla(var(--color-default), 12%, .7);
+
+    /* Variables */
+    --round-value: .4em;
+}

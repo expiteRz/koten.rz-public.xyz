@@ -1,0 +1,24 @@
+{
+  "name": "koten-rz-public-xyz",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev --port 5173",
+    "build": "vinxi build",
+    "start": "vinxi start"
+  },
+  "dependencies": {
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/start": "^1.0.6",
+    "sass": "^1.79.1",
+    "solid-fontawesome": "^0.2.1",
+    "solid-js": "^1.8.18",
+    "vinxi": "^0.4.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@types/bun": "^1.1.9"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
