@@ -228,7 +228,7 @@ export default () => {
           Api Endpoint
         </a>
         <a
-          href="https://github.com/expiteRz/RetroRewindStats"
+          href="https://github.com/expiteRz/koten.rz-public.xyz"
           target="_blank"
           rel="noopener noreferrer"
         >
