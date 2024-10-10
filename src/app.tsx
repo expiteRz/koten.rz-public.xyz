@@ -135,7 +135,7 @@ export default () => {
 
   return (
     <MetaProvider>
-      <Title>古典 (Retro Rewind stats) (pre-0.1.2)</Title>
+      <Title>古典 (Retro Rewind stats) (pre-0.1.3)</Title>
       <Link rel="preconnect" href="https://fonts.googleapis.com" />
       <Link
         rel="preconnect"
@@ -143,7 +143,7 @@ export default () => {
         crossorigin="anonymous"
       />
       <Stylesheet href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Quicksand:wght@300..700&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap" />
-      <div class="_ribbon">Pre-0.1.2</div>
+      <div class="_ribbon">Pre-0.1.3</div>
       <main>
         {/* <input
           type="text"

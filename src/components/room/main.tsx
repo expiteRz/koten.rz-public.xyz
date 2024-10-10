@@ -48,6 +48,8 @@ export default (props: {
             <div class="region" title={props.region}>
               {props.region === "vs_10"
                 ? "Retro CTWW"
+                : props.region === "bt_10"
+                ? "Retro Battle"
                 : props.region === "vs"
                 ? "Retro TTs Online"
                 : "Unknown"}
