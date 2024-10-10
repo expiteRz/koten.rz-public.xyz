@@ -1,0 +1,14 @@
+.room_total_info {
+    display: flex;
+    flex-direction: row;
+
+    .player_counts {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .last_updated {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}

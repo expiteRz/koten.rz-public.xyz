@@ -1,4 +1,9 @@
 /// <reference types="@solidjs/start/env" />
+declare type CustomRoomData = {
+    last_updated: string;
+    data: RoomStruct[];
+};
+
 declare type RoomStruct = {
     id: string;
     game: string;
@@ -7,7 +12,7 @@ declare type RoomStruct = {
     suspend: boolean;
     host: string;
     rk: string;
-    players: { [id: string]: RoomPlayerStruct };
+    players: { [id: string]: RoomPlayerStruct; };
 };
 
 declare type RoomPlayerStruct = {
@@ -35,7 +40,7 @@ declare type RoomPlayerMiiStruct = {
 
 declare type RoomType = "anybody" | "private";
 
-declare type RoomPlayerCountStruct = { player: number; room: number };
+declare type RoomPlayerCountStruct = { player: number; room: number; };
 
 declare type SessionConfig = { defaultOpen: boolean; };
 

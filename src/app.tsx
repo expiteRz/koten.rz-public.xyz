@@ -45,12 +45,13 @@ export default () => {
   const fetchGroups = async () => {
     const res = await fetch(APP_FETCH_TO);
     const j = await res.json();
-    return j as RoomStruct[];
+    return j as CustomRoomData;
   };
 
   const [store, setStore] = createLocalStore("config", { defaultOpen: false });
 
   const [room_data, { refetch }] = createResource(fetchGroups);
+  const [lastUpdated, setLastUpdated] = createSignal("");
   const [roomDataFinalized, setRoomDataFinalized] = createSignal<RoomStruct[]>(
     []
   );
@@ -64,7 +65,8 @@ export default () => {
   const timer = setInterval(async () => {
     try {
       await refetch();
-      setRoomDataFinalized(room_data()!);
+      setLastUpdated(room_data()!.last_updated);
+      setRoomDataFinalized(room_data()!.data);
 
       let rooms = roomDataFinalized().length;
       let players = 0;
@@ -85,12 +87,13 @@ export default () => {
   createEffect(() => {
     try {
       if (room_data.state === "ready") {
-        const tempRoomResort = room_data().sort(
+        const tempRoomResort = room_data().data.sort(
           (a, b) =>
             +Object.values(b.players).some((v) => v.fc === searchFriendCode()) -
             +Object.values(a.players).some((v) => v.fc === searchFriendCode())
         );
-        setRoomDataFinalized(room_data());
+        setLastUpdated(room_data()!.last_updated);
+        setRoomDataFinalized(room_data().data);
 
         let rooms = roomDataFinalized().length;
         let players = 0;
@@ -103,7 +106,7 @@ export default () => {
             setOrRemoveIsOpened(
               roomPanelOpened(),
               v.id,
-              checkExistsInSlice(room_data(), v.id),
+              checkExistsInSlice(room_data().data, v.id),
               true
             );
           });
@@ -118,11 +121,12 @@ export default () => {
 
   createEffect(() => {
     try {
-      const tempRoomResort = room_data()!.sort(
+      const tempRoomResort = room_data()!.data.sort(
         (a, b) =>
           +Object.values(b.players).some((v) => v.fc === searchFriendCode()) -
           +Object.values(a.players).some((v) => v.fc === searchFriendCode())
       );
+      setLastUpdated(room_data()!.last_updated);
       setRoomDataFinalized(tempRoomResort);
     } catch (e) {
       console.error(e);
@@ -131,7 +135,7 @@ export default () => {
 
   return (
     <MetaProvider>
-      <Title>古典 (Retro Rewind stats) (pre-0.1.1)</Title>
+      <Title>古典 (Retro Rewind stats) (pre-0.1.2)</Title>
       <Link rel="preconnect" href="https://fonts.googleapis.com" />
       <Link
         rel="preconnect"
@@ -139,7 +143,7 @@ export default () => {
         crossorigin="anonymous"
       />
       <Stylesheet href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Quicksand:wght@300..700&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap" />
-      <div class="_ribbon">Pre-0.1</div>
+      <div class="_ribbon">Pre-0.1.2</div>
       <main>
         {/* <input
           type="text"
@@ -149,9 +153,14 @@ export default () => {
             setSearchFriendCode(v.currentTarget.value);
           }}
         ></input> */}
-        <div class="player_counts">
-          {roomPlayerCount().player} Active Players | {roomPlayerCount().room}{" "}
-          Rooms
+        <div class="room_total_info">
+          <div class="player_counts">
+            {roomPlayerCount().player} Active Players | {roomPlayerCount().room}{" "}
+            Rooms
+          </div>
+          <div class="last_updated">
+            Last updated: {new Date(lastUpdated()).toLocaleString("sv-SE")}
+          </div>
         </div>
         <Suspense fallback={<Loading />}>
           <Switch fallback={<Loading />}>
@@ -176,7 +185,7 @@ export default () => {
                       setOrRemoveIsOpened(
                         roomPanelOpened(),
                         item.id,
-                        checkExistsInSlice(room_data()!, item.id),
+                        checkExistsInSlice(room_data()!.data, item.id),
                         v
                       );
                     }}
@@ -219,6 +228,13 @@ export default () => {
           rel="noopener noreferrer"
         >
           Made by Rz
+        </a>
+        <a
+          href="https://fontawesome.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Icon from Font Awesome
         </a>
         <a
           href="http://zplwii.xyz/api/groups"
