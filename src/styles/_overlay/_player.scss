@@ -1,0 +1,46 @@
+.player {
+    display: flex;
+    font-size: large;
+    font-weight: 700;
+    margin: .7em 2em .7em 1em;
+    padding: .6em 1em;
+    white-space: nowrap;
+    filter: drop-shadow(0 .3em 0 var(--color-input-background)) drop-shadow(0 0 .4em var(--color-input-background));
+
+    span.name {
+        margin: auto auto auto 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: calc(100% - 2.4em);
+
+        &.no_name {
+            font-style: italic;
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--color-panel-background);
+        z-index: -1;
+        border-radius: .4em;
+        transform: skewX(-15deg);
+    }
+}
+
+.rating {
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    right: .7em;
+    padding: .4em .5em;
+    background-color: var(--color-overlay-rating-background);
+    z-index: 100;
+    transform: translateY(-50%);
+    border-radius: .3em;
+    filter: drop-shadow(0 .2em 0 var(--color-background-hover)) drop-shadow(0 0 .4em var(--color-background-hover));
+}

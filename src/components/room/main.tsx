@@ -43,7 +43,7 @@ export default (props: {
           </svg>
         )}
         <div style={{ display: "flex", "flex-direction": "column" }}>
-          <h3>{props.id}</h3>
+          <h3 id="info_selectable">{props.id}</h3>
           {props.type === "anybody" ? (
             <div class="region" title={props.region}>
               {props.region === "vs_10"

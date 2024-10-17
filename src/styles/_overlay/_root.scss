@@ -1,0 +1,15 @@
+body {
+    background: transparent;
+    font-family: "Quicksand", "M PLUS Rounded 1c", "CTMKF", sans-serif;
+}
+
+* {
+    position: relative;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--color-label);
+}
+
+main {
+    width: 300px;
+}

@@ -12,6 +12,7 @@
         flex-direction: row;
         gap: 1em;
         padding: .8em 1em;
+        cursor: pointer;
 
         &:hover {
             background-color: var(--color-background-hover);
@@ -57,6 +58,10 @@
                 width: 18px;
             }
         }
+
+        #info_selectable {
+            user-select: text;
+        }
     }
 
     hr {
@@ -78,7 +83,8 @@
     .player_item {
         display: flex;
         flex-direction: row;
-        margin: .7em;
+        gap: .7em;
+        margin: .4em .7em;
         user-select: text;
 
         h4 {
@@ -97,8 +103,24 @@
             color: var(--color-panel-background);
             background-color: var(--color-chip-background);
             border-radius: var(--round-value);
-            padding: .3em;
-            margin-left: .7em;
+            padding: .6em;
+            // margin-left: .7em;
+        }
+
+        a {
+            all: unset;
+            padding: .4em;
+            margin: auto 0;
+            border-radius: .3em;
+            cursor: pointer;
+
+            &.target {
+                fill: currentColor;
+            }
+
+            &:hover {
+                background-color: var(--color-background-hover);
+            }
         }
     }
 }
